@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 // mongoose.Promise = global.Promise
-module.exports = {
+const connector = {
   mongoose,
   connect() {    
     mongoose.connect('mongodb://localhost:27017/app-wallet', {
@@ -22,3 +22,5 @@ module.exports = {
     return mongoose.disconnect()
   }
 }
+
+export default connector;
