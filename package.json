@@ -1,0 +1,43 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/M-Rodrigues/app-wallet-backend.git",
+  "author": "M-Rodrigues <matheus.rodrigues.ime@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node --inspect=5858 -r ts-node/register ./src/server.ts",
+    "start:watch": "nodemon",
+    "build": "tsc",
+    "test": "jest --watchAll"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "npm start",
+    "ext": "ts"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.6.10"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/jest": "^24.0.18",
+    "@types/mongoose": "^5.5.13",
+    "@types/node": "^12.7.2",
+    "nodemon": "^1.19.1",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.19.0",
+    "typescript": "^3.5.3"
+  }
+}
