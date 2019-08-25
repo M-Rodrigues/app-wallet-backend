@@ -1,7 +1,5 @@
 import { Router, Request, Response } from "express";
 
-import expect from "expect";
-
 import UserService from "../services/UserService";
 
 const router = Router();
