@@ -10,7 +10,7 @@
     "start": "node --inspect=5858 -r ts-node/register ./src/server.ts",
     "start:watch": "nodemon",
     "build": "tsc",
-    "test": "jest --watchAll --runInBand"
+    "test": "jest --watchAll"
   },
   "nodemonConfig": {
     "ignore": [
