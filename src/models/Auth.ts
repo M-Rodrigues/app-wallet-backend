@@ -1,8 +1,8 @@
 import { model, Schema, Document } from "mongoose";
 
 export interface IAuth extends Document {
-  email: string;
-  password: string;
+  email: String;
+  password: String;
 }
 
 const AuthSchema: Schema = new Schema({

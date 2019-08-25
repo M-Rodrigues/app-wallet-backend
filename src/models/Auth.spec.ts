@@ -1,16 +1,19 @@
 import db from "../db";
+import faker from "faker";
 import Auth, { IAuth } from "./Auth";
 
 describe('Auth model', () => {
-  beforeAll(async () => db.connect());
-  afterAll(async () => {
-    
+  const authEmail: String = faker.internet.email();
+  const authPassword: String = faker.internet.password();
+
+  beforeAll(async () => {
+    db.connect();
+  });
+  
+  afterAll(async () => {  
     try {
-      const result = await Auth.deleteMany({
-        email: /test@test.com/
-      });
+      const result = await Auth.deleteMany({ email: authEmail });
       
-      // console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -25,8 +28,8 @@ describe('Auth model', () => {
 
   it('Should save a Auth', async () => {
     const auth: IAuth = new Auth({
-      email: "test@test.com",
-      password: 'pwd'
+      email: authEmail,
+      password: authPassword
     });
 
     const spy = jest.spyOn(auth, 'save');
@@ -39,6 +42,6 @@ describe('Auth model', () => {
       password: expect.any(String)
     });
 
-    expect(auth.email).toBe('test@test.com');
+    expect(auth.email).toBe(authEmail);
   });
 });

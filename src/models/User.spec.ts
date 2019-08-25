@@ -1,16 +1,25 @@
 import db from "../db";
+import faker from "faker";
 import User, { IUser } from "./User";
+import Auth, { IAuth } from "./Auth";
 
 describe('User model', () => {
+  const userUsername = faker.internet.userName();
+  const userName = faker.name.findName();
+  const userBirthday = faker.date.past();
+
+  const authEmail: String = faker.internet.email();
+  const authPassword: String = faker.internet.password();
+
+
   beforeAll(async () => db.connect());
   afterAll(async () => {
     
     try {
-      const result = await User.deleteMany({
-        username: /test_username/
-      });
+      await User.deleteMany({ username: userUsername });
+
+      await Auth.deleteMany({ email: authEmail });
       
-      // console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -24,10 +33,18 @@ describe('User model', () => {
   });
 
   it('Should save a User', async () => {
+    const auth: IAuth = new Auth({
+      email: authEmail,
+      password: authPassword,
+    });
+
+    await auth.save();
+    
     const user: IUser = new User({
-      name: "Matheus",
-      username: "test_username",
-      birthday: Date()
+      name: userName,
+      username: userUsername,
+      birthday: userBirthday,
+      auth: auth._id
     });
     
     const spy = jest.spyOn(user, 'save');
@@ -42,6 +59,6 @@ describe('User model', () => {
       birthday: expect.any(Date)
     });
 
-    expect(user.username).toBe('test_username');
+    expect(user.username).toBe(userUsername);
   });
 });
