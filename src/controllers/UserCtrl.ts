@@ -1,7 +1,5 @@
 import { Router, Request, Response } from "express";
 
-import AuthMiddleware from "../middlewares/AuthMiddleware";
-
 import UserService from "../services/UserService";
 
 const router = Router();

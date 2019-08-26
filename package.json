@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/server.js",
   "repository": "https://github.com/M-Rodrigues/app-wallet-backend.git",
   "author": "M-Rodrigues <matheus.rodrigues.ime@gmail.com>",
   "license": "MIT",
@@ -10,6 +10,7 @@
     "start": "node --inspect=5858 -r ts-node/register ./src/server.ts",
     "start:watch": "nodemon",
     "build": "tsc",
+    "prod": "node dist/server.js",
     "test": "jest --runInBand",
     "test:dev": "jest --watchAll"
   },
