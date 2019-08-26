@@ -47,7 +47,7 @@ const service = {
 
     const token = jwt.sign(
       { user: user._id }, 
-      process.env.JWT_SECRET || 'shhhhh',
+      process.env.JWT_SECRET || 'jwt_secret',
       { expiresIn: '1h'}
     );
 

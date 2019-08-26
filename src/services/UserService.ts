@@ -38,6 +38,12 @@ const service = {
     await user.save();
 
     return user;
+  },
+  async getAllUsers() {
+    const users = User.find({})
+      .populate('auth', 'email');
+
+    return users;
   }
 }
 

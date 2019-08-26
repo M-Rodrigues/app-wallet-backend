@@ -1,11 +1,14 @@
 import { Router, Request, Response } from "express";
 
+import AuthMiddleware from "../middlewares/AuthMiddleware";
+
 import UserService from "../services/UserService";
 
 const router = Router();
 
-router.get('/', (req:Request, res:Response) => {
-  res.json('GET /users');
+router.get('/', async (req:Request, res:Response) => {
+  const users = await UserService.getAllUsers();
+  return res.json(users);
 });
 
 router.post('/', async (req:Request, res:Response) => {
