@@ -6,11 +6,10 @@
   "author": "M-Rodrigues <matheus.rodrigues.ime@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "start": "node --inspect=5858 -r ts-node/register ./src/server.ts",
-    "start:watch": "nodemon",
+    "dev": "node --inspect=5858 -r ts-node/register ./src/server.ts",
+    "dev:watch": "nodemon",
     "build": "tsc",
-    "prod": "node dist/server.js",
+    "start": "node dist/server.js",
     "test": "jest --runInBand",
     "test:dev": "jest --watchAll"
   },
