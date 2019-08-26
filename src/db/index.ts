@@ -21,7 +21,7 @@ const connector = {
       // },
       // authSource: 'admin'
     }).then(() => {
-      console.log('successfully connected to the database');
+      // console.log('successfully connected to the database');
     }, err => {
       console.log('error connecting to the database');
       process.exit();

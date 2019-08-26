@@ -7,5 +7,4 @@ deploy:
   api_key:
     secure: "$HEROKU_API"
   app: app-wallet-backend
-  run: "npm run start"
   strategy: git
