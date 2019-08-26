@@ -1,9 +1,9 @@
 language: node_js 
 
-deploy:
-  provider: heroku
-  api_key:
-    secure: "YOUR ENCRYPTED API KE"
-  app: app-wallet-backend
-  run: "npm run start"
-  strategy: git
+# deploy:
+#   provider: heroku
+#   api_key:
+#     secure: "YOUR ENCRYPTED API KE"
+#   app: app-wallet-backend
+#   run: "npm run start"
+#   strategy: git
