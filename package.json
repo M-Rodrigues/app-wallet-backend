@@ -6,7 +6,7 @@
   "author": "M-Rodrigues <matheus.rodrigues.ime@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "node --inspect=5858 -r ts-node/register ./src/server.ts",
+    "dev": "node --inspect=5858 -r ts-node/register src/server.ts",
     "dev:watch": "nodemon",
     "build": "tsc",
     "start": "node dist/server.js",
