@@ -1,17 +1,14 @@
 import mongoose from "mongoose";
 
-// mongoose.Promise = global.Promise
+
+const connString = process.env.MONGO_CONN_STRING || "mongodb://root:example@localhost:27017/app-wallet&auth=admin"; 
 const connector = {
   mongoose,
   connect() {    
-    mongoose.connect('mongodb://localhost:27017/app-wallet', {
+    mongoose.connect(connString, {
       useNewUrlParser: true,
       useCreateIndex: true,
-      auth: {
-        user: "root",
-        password: "example"
-      },
-      authSource: 'admin'
+      authSource: 'admin',
     // mongoose.connect('mongodb+srv://app-wallet-db:server_app_wallet@app-wallet-db-xnrz8.mongodb.net/test', {
     //   useNewUrlParser: true,
     //   useCreateIndex: true,

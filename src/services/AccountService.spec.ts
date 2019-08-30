@@ -58,4 +58,12 @@ describe('Service: Account', () => {
     expect(this.user.accounts.length).toBe(1);
     expect(this.user.accounts.indexOf(account._id) != -1).toBe(true);
   });
+
+  it('Should create a credit account', async () => {
+    // expect(true).toBe(false);
+  });
+
+  it('Should throw error when bad input', async () => {
+    // expect(true).toBe(false);
+  });
 });
